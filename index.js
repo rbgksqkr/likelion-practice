@@ -1,5 +1,9 @@
+const inputContainer = document.getElementById("input-container");
 const contentContainer = document.getElementById("content-container");
+
+const writerForm = document.getElementById("writer-form");
 const postForm = document.getElementById("post-form");
+
 const inputWriter = document.getElementById("input-writer");
 const inputPost = document.getElementById("input-post");
 
@@ -18,21 +22,26 @@ const fetchPostList = async () => {
       const button = document.createElement("button");
       button.id = item.id;
       button.classList.add("delete-button");
-      button.innerText = `${button.id} 삭제`;
+      button.innerText = "삭제";
       button.addEventListener("click", deletePost);
-      contentContainer.appendChild(button);
+      container.appendChild(button);
       contentContainer.appendChild(container);
     });
   } else {
     const container = document.createElement("div");
     container.innerText =
       "방명록에 글이 없습니다 \n\n 첫 방명록을 적어주세요 !";
-    contentContainer.appendChild(container);
+    inputContainer.appendChild(container);
   }
   console.log(data);
 };
 
 const handleWritePost = async (e) => {
+  if (inputWriter.value.length === 0 || inputPost.value.length === 0) {
+    e.preventDefault();
+    alert("모두 입력해주세요 !");
+    return;
+  }
   const result = await createPost(inputWriter.value, inputPost.value);
   if (result.status === 200) {
     inputWriter.value = "";
@@ -57,14 +66,17 @@ const createPost = async (name, content) => {
 };
 
 const deletePost = async (e) => {
-  await fetch(`${homePath}${e.target.id}/`, {
-    method: "DELETE",
-  })
-    .then((res) => {
-      window.location.reload();
-      return res.json();
+  if (confirm("삭제하시겠습니까?") === true) {
+    await fetch(`${homePath}${e.target.id}/`, {
+      method: "DELETE",
     })
-    .catch((error) => console.log("delete 실패 에러:", error));
+      .then((res) => {
+        window.location.reload();
+        return res.json();
+      })
+      .catch((error) => console.log("delete 실패 에러:", error));
+  }
 };
 
+writerForm.addEventListener("submit", handleWritePost);
 postForm.addEventListener("submit", handleWritePost);

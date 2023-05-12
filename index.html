@@ -8,12 +8,16 @@
 </head>
 <body>
     <h1>💖 멋쟁이사자처럼 방명록 💖</h1>
-    <div id="content-container">
-        <input id="input-writer" type="text" placeholder="이름">
+    <div id="input-container">
+        <form id="writer-form">
+            이름 : <input id="input-writer" type="text" placeholder="이름이 뭐니?">
+        </form>
         <form id="post-form">
-            <input id="input-post" type="text" placeholder="하고 싶은 말 다 해">
+            롤링페이퍼 : <input id="input-post" type="text" placeholder="하고 싶은 말 다 해">
         </form>
     </div>
+    <div id="content-container"></div>
+
     <script src="./index.js"></script>
     <script>fetchPostList()</script>
 </body>

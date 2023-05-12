@@ -1,4 +1,8 @@
 const contentContainer = document.getElementById("content-container");
+const postForm = document.getElementById("post-form");
+const inputWriter = document.getElementById("input-writer");
+const inputPost = document.getElementById("input-post");
+
 const url = "http://likelion.kro.kr:8000/";
 
 const fetchPostList = async () => {
@@ -19,6 +23,26 @@ const fetchPostList = async () => {
       "방명록에 글이 없습니다 \n\n 첫 방명록을 적어주세요 !";
     contentContainer.appendChild(container);
   }
-
   console.log(data);
 };
+
+const handleWritePost = async (e) => {
+  const result = await createPost(inputWriter.value, inputPost.value);
+  inputWriter.value = "";
+  inputPost.value = "";
+};
+
+const createPost = async (name, content) => {
+  const item = {
+    name,
+    content,
+  };
+  const response = await fetch(url + "new/", {
+    method: "POST",
+    body: JSON.stringify(item),
+  }).then((res) => res.json());
+
+  return response;
+};
+
+postForm.addEventListener("submit", handleWritePost);

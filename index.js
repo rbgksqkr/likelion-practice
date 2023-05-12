@@ -1,4 +1,4 @@
-import "./style.css";
+// import "./style.css";
 const inputContainer = document.getElementById("input-container");
 const contentContainer = document.getElementById("content-container");
 
@@ -19,7 +19,8 @@ const fetchPostList = async () => {
   if (data.length > 0) {
     data.map((item) => {
       const container = document.createElement("div");
-      container.innerText = `id: ${item.id} / 작성자 : ${item.writer} / 내용 : ${item.content}`;
+      container.classList.add("post");
+      container.innerText = `작성자 : ${item.writer} / 내용 : ${item.content}`;
       const button = document.createElement("button");
       button.id = item.id;
       button.classList.add("delete-button");

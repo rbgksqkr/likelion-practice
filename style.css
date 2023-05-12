@@ -2,9 +2,25 @@
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
+    background-color: rgb(57, 204, 128);
+}
+
+#body-container {
+    border: 3px solid black;
+    border-radius: 30px;
+    background-color: white;
+    width: 60%;
+    margin: 0 auto;
+    /* background: url('./background.jpeg') no-repeat; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #input-container {
     display: flex;
 }
 
+.post {
+    margin-bottom: 20px;
+}

@@ -2,16 +2,16 @@
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
-    background-color: rgb(57, 204, 128);
+    background: linear-gradient(white, #c3b9d6);
 }
 
 #body-container {
-    border: 3px solid black;
+    border: 5px solid #c3b9d6;
     border-radius: 30px;
-    background-color: white;
     width: 60%;
     margin: 0 auto;
-    /* background: url('./background.jpeg') no-repeat; */
+    box-shadow: 1px 1px 5px gray;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;

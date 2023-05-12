@@ -1,3 +1,4 @@
+import "./style.css";
 const inputContainer = document.getElementById("input-container");
 const contentContainer = document.getElementById("content-container");
 
@@ -78,5 +79,6 @@ const deletePost = async (e) => {
   }
 };
 
+fetchPostList();
 writerForm.addEventListener("submit", handleWritePost);
 postForm.addEventListener("submit", handleWritePost);

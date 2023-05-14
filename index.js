@@ -10,7 +10,7 @@ const inputPost = document.getElementById("input-post");
 
 const homePath = "http://likelion.kro.kr:8000/";
 
-const fetchPostList = async () => {
+const fetchAllPostList = async () => {
   const fetchList = await fetch(homePath)
     .then((res) => res.json())
     .catch((error) => console.log("data fetch error:", error));
@@ -20,6 +20,7 @@ const fetchPostList = async () => {
     data.map((item) => {
       const container = document.createElement("div");
       container.classList.add("post");
+      container.addEventListener("click", fetchPost);
 
       const contentDiv = document.createElement("div");
       contentDiv.classList.add("content-div");
@@ -48,6 +49,11 @@ const fetchPostList = async () => {
     inputContainer.appendChild(container);
   }
   console.log(data);
+};
+
+const fetchPost = async (e) => {
+  const id = e.currentTarget.querySelector(".delete-button").id;
+  window.location.href = `detail.html?id=${id}`;
 };
 
 const handleWritePost = async (e) => {
@@ -92,6 +98,6 @@ const deletePost = async (e) => {
   }
 };
 
-fetchPostList();
+fetchAllPostList();
 writerForm.addEventListener("submit", handleWritePost);
 postForm.addEventListener("submit", handleWritePost);

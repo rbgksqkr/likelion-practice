@@ -1,4 +1,4 @@
-import("./style.css");
+import "./style.css";
 const inputContainer = document.getElementById("input-container");
 const contentContainer = document.getElementById("content-container");
 

@@ -1,3 +1,5 @@
+import "./style.css";
+
 const bodyContainer = document.getElementById("body-container");
 
 const homePath = "http://likelion.kro.kr:8000/";

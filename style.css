@@ -8,7 +8,7 @@ body {
 #body-container {
     border: 5px solid #c3b9d6;
     border-radius: 30px;
-    width: 60%;
+    width: 70%;
     margin: 0 auto;
     box-shadow: 1px 1px 5px gray;
     background-color: white;
@@ -22,5 +22,18 @@ body {
 }
 
 .post {
+    display: flex;
     margin-bottom: 20px;
+}
+.post:hover {
+    cursor: pointer;
+    background-color: rgb(213, 209, 209);
+}
+
+.content-div {
+    width: 220px;
+}
+
+.writer-div {
+    width: 210px;
 }

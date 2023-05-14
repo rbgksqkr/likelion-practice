@@ -1,4 +1,4 @@
-import "./style.css";
+import("./style.css");
 const inputContainer = document.getElementById("input-container");
 const contentContainer = document.getElementById("content-container");
 
@@ -20,12 +20,24 @@ const fetchPostList = async () => {
     data.map((item) => {
       const container = document.createElement("div");
       container.classList.add("post");
-      container.innerText = `작성자 : ${item.writer} / 내용 : ${item.content}`;
+
+      const contentDiv = document.createElement("div");
+      contentDiv.classList.add("content-div");
+      if (item.content.length > 10)
+        contentDiv.innerText = `${item.content.slice(0, 10)} <더보기>`;
+      else contentDiv.innerText = `${item.content}`;
+      const writerDiv = document.createElement("div");
+      writerDiv.classList.add("writer-div");
+      writerDiv.innerText = `작성자 : ${item.writer} `;
+
       const button = document.createElement("button");
       button.id = item.id;
       button.classList.add("delete-button");
       button.innerText = "삭제";
       button.addEventListener("click", deletePost);
+
+      container.appendChild(contentDiv);
+      container.appendChild(writerDiv);
       container.appendChild(button);
       contentContainer.appendChild(container);
     });

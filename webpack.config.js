@@ -23,11 +23,19 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "index.html",
       filename: "index.html",
+      chunks: ["index"],
     }),
     new HtmlWebpackPlugin({
       template: "detail.html",
       filename: "detail.html",
+      chunks: ["detail"],
     }),
     new CleanWebpackPlugin(),
   ],
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, "docs"),
+    },
+    port: 3000,
+  },
 };

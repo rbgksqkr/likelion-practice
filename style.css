@@ -25,7 +25,11 @@ body {
     display: flex;
     margin-bottom: 20px;
 }
-.post:hover {
+
+.label {
+    display: flex;
+}
+.label:hover {
     cursor: pointer;
     background-color: rgb(213, 209, 209);
 }

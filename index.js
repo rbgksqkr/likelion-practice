@@ -20,7 +20,11 @@ const fetchAllPostList = async () => {
     data.map((item) => {
       const container = document.createElement("div");
       container.classList.add("post");
-      container.addEventListener("click", fetchPost);
+
+      const labelDiv = document.createElement("div");
+      labelDiv.addEventListener("click", fetchPost);
+      labelDiv.classList.add("label");
+      labelDiv.id = item.id;
 
       const contentDiv = document.createElement("div");
       contentDiv.classList.add("content-div");
@@ -37,8 +41,9 @@ const fetchAllPostList = async () => {
       button.innerText = "삭제";
       button.addEventListener("click", deletePost);
 
-      container.appendChild(contentDiv);
-      container.appendChild(writerDiv);
+      labelDiv.appendChild(contentDiv);
+      labelDiv.appendChild(writerDiv);
+      container.appendChild(labelDiv);
       container.appendChild(button);
       contentContainer.appendChild(container);
     });
@@ -52,7 +57,7 @@ const fetchAllPostList = async () => {
 };
 
 const fetchPost = async (e) => {
-  const id = e.currentTarget.querySelector(".delete-button").id;
+  const id = e.currentTarget.id;
   window.location.href = `detail.html?id=${id}`;
 };
 

@@ -33,7 +33,9 @@ const fetchAllPostList = async () => {
       else contentDiv.innerText = `${item.content}`;
       const writerDiv = document.createElement("div");
       writerDiv.classList.add("writer-div");
-      writerDiv.innerText = `작성자 : ${item.writer} `;
+      if (item.writer.length > 10)
+        writerDiv.innerText = `${item.writer.slice(0, 10)} <더보기>`;
+      else writerDiv.innerText = `${item.writer}`;
 
       const button = document.createElement("button");
       button.id = item.id;

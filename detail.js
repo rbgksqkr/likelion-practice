@@ -14,9 +14,10 @@ const fetchOnePost = async () => {
     .catch((error) => console.log("data fetch error:", error));
   const name = fetchPost.data["name"];
   const content = fetchPost.data["content"];
+  const date = fetchPost.data["created_at"];
   const container = document.createElement("div");
   container.classList.add("post");
-  container.innerText = `작성자 : ${name} \n 내용 : ${content}`;
+  container.innerText = `\u00a0\u00a0\u00a0\u00a0내용 : ${content}\n작성자 : ${name}\n작성일 : ${date}`;
   bodyContainer.appendChild(container);
 };
 

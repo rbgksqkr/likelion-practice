@@ -11,6 +11,7 @@ const inputPost = document.getElementById("input-post");
 const homePath = "http://likelion.kro.kr:8000/";
 
 const fetchAllPostList = async () => {
+  inputPost.focus();
   const fetchList = await fetch(homePath)
     .then((res) => res.json())
     .catch((error) => console.log("data fetch error:", error));

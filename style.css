@@ -43,7 +43,7 @@ body {
     width: 20vw;
 }
 
-@media all and (max-width:500px) {
+@media all and (max-width:800px) {
     #body-container {
         width: 90vw;
     }

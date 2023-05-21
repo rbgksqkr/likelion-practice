@@ -8,7 +8,7 @@ body {
 #body-container {
     border: 5px solid #c3b9d6;
     border-radius: 30px;
-    width: 70%;
+    width: 60%;
     margin: 0 auto;
     box-shadow: 1px 1px 5px gray;
     background-color: white;
@@ -21,9 +21,10 @@ body {
     display: flex;
 }
 
+
 .post {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .label {
@@ -35,9 +36,44 @@ body {
 }
 
 .content-div {
-    width: 220px;
+    width: 20vw;
 }
 
 .writer-div {
-    width: 220px;
+    width: 20vw;
+}
+
+@media  (max-width:400px) {
+    #body-container {
+        width: 90vw;
+    }
+    h1 {
+        font-size: 8vw;
+    }
+    #input-container {
+        display: block;
+        margin-left: 20%;
+    }
+
+    .post {
+        height: 50px;
+    }
+    .label {
+        margin-right: 30px;
+    }
+
+    #post-form {
+        width: 80vw;
+    }
+
+    #writer-form {
+        width: 80vw;
+    }
+    .content-div {
+        width: 30vw;
+    }
+    .label .writer-div { 
+        margin-left: 30%;
+    }
+    
 }
